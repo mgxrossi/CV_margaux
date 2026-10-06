@@ -1,0 +1,10 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Réglages de l'éditeur
+.vscode/
+
+# Dépendances (si tu utilises npm un jour)
+node_modules/
