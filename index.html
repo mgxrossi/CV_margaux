@@ -1,0 +1,162 @@
+<!DOCTYPE html> <!--c'est du HTML moderne-->
+
+<html lang="fr"> <!--La balise qui englobe tout le document. L'attribut lang="fr" dit que la page est en français-->
+
+<head> <!--Ouvre la partie « coulisses » : rien de ce qu'elle contient ne s'affiche dans la page-->
+    <meta charset="UTF-8"> <!--L'encodage des caractères. Sinon les accents pourraient s'afficher en symboles bizarres-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Indispensable pour le mobile. Elle dit au téléphone : « affiche la page à la largeur réelle de l'écran, sans zoom »-->
+    <title>CV - Margaux Rossi, bibliothécaire</title> <!--Le texte affiché dans l'onglet du navigateur, et aussi dans les résultats Google-->
+
+    <!-- Polices Google : Rammetto One pour les titres, Work Sans pour le texte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- dit au navigateur : "Commence tout de suite à te connecter à ce serveur, tu vas en avoir besoin". fournit le fichier CSS qui décrit les polices -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- fournit les fichiers des polices eux-mêmes -->
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <!--Charge vraiment les polices. Dans l'adresse, tu peux lire les noms des deux polices-->
+
+    <link rel="stylesheet" href="style.css">
+    <!--Relie mon fichier CSS. Le chemin style.css veut dire « dans le même dossier que ce fichier HTML-->
+
+    <!--Fin des coulisses, début du contenu visible. Tout ce qui est dans <body> s'affiche-->
+</head>
+<body>
+
+    <div class="cv"> <!--La boîte qui contient tout le CV, la feuille jaune-->
+
+        <!-- ========== EN-TÊTE : photo + nom + profil ========== -->
+        <header class="entete"> <!--l'en-tête de la page. La classe entete sert au CSS pour en faire une grille à deux colonnes-->
+            <div class="photo">
+                <img src="images/photo.jpg" alt="Photo de Margaux Rossi"> <!--src indique où se trouve l'image et alt la decris pour les personnes qui ne la voit pas-->
+            </div>
+            <!-- La photo est enveloppée dans un <div> parce que le cadre ondulé est dessiné sur ce div en CSS, derrière l'image-->
+
+            <div class="presentation"> 
+                <!--Regroupe le nom, le métier et le profil pour qu'ils forment ensemble la colonne de droite de l'en-tête-->
+                <h1>Margaux<br>Rossi</h1> <!-- <br> force un retour à la ligne-->
+                <p class="metier">Bibliothécaire</p>
+                <p class="profil">
+                    Bibliothécaire passionnée, je mets mon goût de la recherche
+                    documentaire, mon sens de l'organisation et ma maîtrise des
+                    outils numériques au service des lecteurs.
+                    Curieuse, autonome et investie, je souhaite accompagner tous
+                    les publics dans l'accès au savoir et à la culture.
+                </p>
+            <!--On ferme la présentation puis l'en-tête-->
+            </div>
+        </header>
+
+        <div class="colonnes"> <!--La boîte qui contient les deux colonnes du bas, transformée en grille par le CSS-->
+
+            <!-- ========== COLONNE GAUCHE ========== -->
+            <aside class="gauche"> <!--<aside> désigne un contenu complémentaire, à côté du contenu principal-->
+
+                <!--Un bloc thématique, ici le bloc Contact-->
+                <section>
+                    <!-- Icône téléphone -->
+                    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"> <!--<svg> ouvre le dessin, comeme une feuille de papier quadrillé, viewBox la décrit, 
+                        Ensuite, le CSS décide de la taille réelle à l'écran (26 px), et le dessin s'adapte
+                        class="icone" permet au CSS de cibler toutes les icônes d'un coup pour leur donner la même taille et la couleur orange-->
+                        <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/>
+                        <!--Chaque lettre est un ordre, suivi de coordonnées sur le quadrillage. Par exemple M6.6 10.8 veut dire « pose le crayon au point 6,6 en horizontal et 10,8 en vertical »-->
+                    </svg> <!--On ferme le dessin-->
+                    <h2>Contact</h2> <!--Le titre de la section-->
+                    <ul> <!--<ul> est une liste non ordonnée, et chaque <li> en est un élément-->
+                        <li><a href="tel:+33767387546">07 67 38 75 46</a></li> <!--<a> transforme un texte en lien cliquable. Le href dit ce qui se passe quand on clique dessus-->
+                            <!--Il y a deux versions du numéro car dans le href on l'écrit à la manière internationale comme ça, l'appel marche même depuis l'étranger, l'autre cest ce que l'utilisateur voit-->
+                        <li><a href="mailto:margaux.rossi18@gmail.com">margaux.rossi18@gmail.com</a></li>
+                        <li>Soorts-Hossegor</li>
+                    </ul>
+                </section> <!--on ferme le bloc contact-->
+
+                <section>
+            
+                    <!-- Icône bulle de dialogue -->
+                    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/>
+                    </svg>
+                    <h2>Langues</h2>
+                    <ul>
+                        <li>Anglais : bon niveau</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <!-- Icône livre ouvert -->
+                    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 6.5C10 4.8 7 4 3 4v14c4 0 7 .8 9 2.5 2-1.7 5-2.5 9-2.5V4c-4 0-7 .8-9 2.5z"/>
+                    </svg>
+                    <h2>Compétences</h2>
+                    <ul>
+                        <li>Recherche documentaire</li>
+                        <li>Accueil et orientation du public</li>
+                        <li>Catalogage et gestion des collections</li>
+                        <li>Animation et médiation culturelle</li>
+                        <li>Rédaction et synthèse</li>
+                        <li>Bases de données et outils numériques</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <!-- Icône étoile -->
+                    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/>
+                    </svg>
+                    <h2>Savoir-être</h2>
+                    <ul>
+                        <li>Adaptabilité</li>
+                        <li>Collaboration</li>
+                        <li>Organisation et priorisation</li>
+                        <li>Rigueur</li>
+                        <li>Bonne humeur</li>
+                    </ul>
+                </section>
+
+            </aside>
+
+            <!-- ========== COLONNE DROITE (avec la ligne orange) ========== -->
+            <main class="droite"> <!-- <main> contient le contenu principal de la page, et il ne doit y en avoir qu'un. C'est sur cette balise que le CSS trace la ligne orange verticale -->
+
+                <section>
+                    <h2>Expérience professionnelle</h2>
+
+                    <!--<article> est un contenu qui a du sens tout seul, ici une expérience complète. 
+                        Dedans, le lieu en <h3> (un niveau en dessous du h2), le poste et les dates dans un paragraphe de classe poste, 
+                        puis la liste des missions-->
+                    <article>
+                        <h3>Médiathèque de Tosse</h3>
+                        <p class="poste">Bibliothécaire, 2022 à 2026</p>
+                        <ul>
+                            <li>Accueil, inscription et conseil aux lecteurs</li>
+                            <li>Acquisitions, catalogage et désherbage des collections</li>
+                            <li>Conception d'expositions et d'animations pour tous les publics</li>
+                        </ul>
+                    </article>
+
+                    <article>
+                        <h3>Café-librairie Le Vent Délire, Capbreton</h3>
+                        <p class="poste">Libraire, 2020 à 2022</p>
+                        <ul>
+                            <li>Conseil et vente auprès d'une clientèle locale et saisonnière</li>
+                            <li>Gestion des commandes et des stocks</li>
+                            <li>Organisation de rencontres et de dédicaces d'auteurs</li>
+                        </ul>
+                    </article>
+                </section>
+
+                <section>
+                    <h2>Formation</h2>
+
+                    <article>
+                        <h3>Université Bordeaux Montaigne</h3>
+                        <p class="poste">Licence professionnelle Métiers du livre, parcours bibliothèques et médiathèques, 2019 à 2020</p>
+                    </article>
+                </section>
+
+        <!--la fermeture dans l'ordre : dans l'ordre : la colonne droite, la boîte des colonnes, la feuille du CV, le corps de la page, puis le document entier-->
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>

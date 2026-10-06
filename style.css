@@ -1,0 +1,261 @@
+/* ========== COULEURS ET POLICES (variables réutilisables) ========== */
+:root {
+    --jaune: #F7E9A8;
+    --jaune-fonce: #E9D27A;
+    --orange: #EE6A2C;
+    --brun: #5A3427;
+    --texte: #6B4A3C;
+
+    --police-titre: "Rammetto One", "Arial Black", sans-serif;
+    --police-texte: "Work Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ========== BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--jaune-fonce);
+    font-family: var(--police-texte);
+    color: var(--texte);
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 40px 16px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--orange);
+}
+
+ul {
+    list-style: none;
+}
+
+/* La "feuille" du CV */
+.cv {
+    max-width: 820px;
+    margin: 0 auto;
+    background: var(--jaune);
+    padding: 56px 56px 64px;
+    box-shadow: 0 12px 40px rgba(90, 52, 39, 0.25);
+}
+
+/* ========== EN-TÊTE ========== */
+.entete {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+/* Photo avec le cadre ondulé orange derrière */
+.photo {
+    position: relative;
+    width: 230px;
+    margin: 0 auto;
+}
+
+.photo::before {
+    content: "";
+    position: absolute;
+    inset: -22px;
+    background: url("images/cadre.svg") center / 100% 100% no-repeat;
+    transform: rotate(-6deg);
+}
+
+.photo img {
+    position: relative;      /* passe devant le cadre */
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 28px;
+}
+
+.presentation h1 {
+    font-family: var(--police-titre);
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--brun);
+    letter-spacing: 0.02em;
+}
+
+.metier {
+    font-weight: 700;
+    color: var(--orange);
+    font-size: 18px;
+    margin: 12px 0 14px;
+}
+
+.profil {
+    max-width: 46ch;
+}
+
+/* Le gros guillemet décoratif */
+.presentation::after {
+    content: "\201D";
+    display: block;
+    text-align: right;
+    font-family: var(--police-titre);
+    font-size: 64px;
+    line-height: 0.6;
+    color: var(--brun);
+    margin-top: 16px;
+}
+
+/* ========== DEUX COLONNES ========== */
+.colonnes {
+    display: grid;
+    grid-template-columns: 1fr 1.7fr;
+    gap: 40px;
+}
+
+h2 {
+    font-family: var(--police-titre);
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.15;
+    color: var(--brun);
+    margin-bottom: 10px;
+}
+
+/* ---- Colonne gauche : tout est centré ---- */
+.gauche {
+    text-align: center;
+}
+
+.gauche section + section {
+    margin-top: 32px;
+}
+
+.icone {
+    width: 26px;
+    height: 26px;
+    fill: var(--orange);
+    margin-bottom: 6px;
+}
+
+.gauche li {
+    font-size: 14px;
+    overflow-wrap: anywhere;   /* évite que l'email déborde */
+}
+
+/* ---- Colonne droite : la ligne orange verticale ---- */
+.droite {
+    border-left: 3px solid var(--orange);
+    padding-left: 28px;
+}
+
+.droite section + section {
+    margin-top: 36px;
+}
+
+/* Le point orange posé sur la ligne devant chaque titre */
+.droite h2 {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.droite h2::before {
+    content: "";
+    position: absolute;
+    left: -38px;     /* recule jusqu'à la ligne */
+    top: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--orange);
+}
+
+.droite article + article {
+    margin-top: 18px;
+}
+
+.droite h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--brun);
+}
+
+.poste {
+    font-weight: 500;
+    color: var(--brun);
+}
+
+/* Puces orange pour les missions */
+.droite ul {
+    margin-top: 6px;
+}
+
+.droite li {
+    position: relative;
+    padding-left: 18px;
+}
+
+.droite li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 700px) {
+    body {
+        padding: 0;
+    }
+
+    .cv {
+        padding: 40px 24px;
+        box-shadow: none;
+    }
+
+    .entete,
+    .colonnes {
+        grid-template-columns: 1fr;
+    }
+
+    .entete {
+        gap: 40px;
+    }
+
+    .presentation h1 {
+        font-size: 48px;
+    }
+}
+
+/* ========== IMPRESSION (Ctrl+P → PDF) ========== */
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        background: var(--jaune);
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .cv {
+        box-shadow: none;
+        max-width: none;
+        min-height: 297mm;
+    }
+}
